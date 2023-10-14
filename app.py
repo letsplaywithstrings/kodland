@@ -137,8 +137,6 @@ def quiz():
         user = User.query.filter_by(username=username).first()
         if user:
             correct_answers = {str(question['id']): int(question['correct_answer']) for question in questions}
-            print(correct_answers)
-            print(session["answers"])
             score = sum(20 if session['answers'][qid] == correct_answers[qid] else 0 for qid in session['answers'])
             if score < 60:
                 session['asked'] = 0
