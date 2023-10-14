@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('serve_css', filename='styles.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<div class="navigation">
+    <ul>
+        <li><a href="/">Ana Sayfa</a></li>
+        <li><a href="/login">Giriş Yap</a></li>
+        <li><a href="/register">Kayıt Ol</a></li>
+        <li><a href="/quiz">Sınav</a></li>
+        <li><a href="/leaderboard">Liderlik Tablosu</a></li>
+    </ul>
+</div>
+
+<div class="content">
+    <h1>Giriş Yap</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-messages">
+        {% for category, message in messages %}
+        <div class="flash-{{ category }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+    {% if not show_data %}
+    <form action="#" method="POST">
+        <label for="username">Kullanıcı Adı:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Şifre:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Giriş Yap</button>
+    </form>
+    {% else %}
+    <h2>Giriş Başarılı!</h2>
+    {% endif %}
+</div>
+</body>
+<footer class="footer fixed-bottom text-center">
+    <div class="container">
+        <p>Ahmet Metin &copy; 2023</p>
+    </div>
+</footer>
+</html>

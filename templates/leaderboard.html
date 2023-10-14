@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liderlik Tablosu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('serve_css', filename='styles.css') }}">
+
+
+</head>
+<body>
+<div class="navigation">
+    <ul>
+        <li><a href="/">Ana Sayfa</a></li>
+        {% if logged_in %}
+        <li><a href="/quiz">Sınav</a></li>
+        <li><a href="/logout">Çıkış Yap</a></li>
+        {% else %}
+        <li><a href="/login">Giriş Yap</a></li>
+        <li><a href="/register">Kayıt Ol</a></li>
+        {% endif %}
+        <li><a href="/leaderboard">Liderlik Tablosu</a></li>
+    </ul>
+</div>
+
+<div class="content">
+    <h1>Liderlik Tablosu</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Sıralama</th>
+            <th>Kullanıcı Adı</th>
+            <th>Puan</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entry in leaderboard_data %}
+        {% if entry.score is not none %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ entry.username }}</td>
+            <td>{{ entry.score }}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+<footer class="footer fixed-bottom text-center">
+    <div class="container">
+        <p>Ahmet Metin &copy; 2023</p>
+    </div>
+</footer>
+</html>

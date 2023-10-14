@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Çıkış Yap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('serve_css', filename='styles.css') }}">
+</head>
+<body>
+<div class="navigation">
+    <ul>
+        <li><a href="/">Ana Sayfa</a></li>
+
+        <li><a href="/leaderboard">Liderlik Tablosu</a></li>
+    </ul>
+</div>
+<h3>Çıkış Yap</h3>
+<h6>Emin misiniz? Oturumunuzu sonlandırmak için aşağıdaki butona tıklayın.</h6>
+
+<form action="/logout" method="post">
+    <button type="submit" class="btn">Çıkış Yap</button>
+</form>
+</body>
+<footer class="footer fixed-bottom text-center">
+    <div class="container">
+        <p>Ahmet Metin &copy; 2023</p>
+    </div>
+</footer>
+</html>

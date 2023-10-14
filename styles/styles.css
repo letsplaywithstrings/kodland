@@ -1,0 +1,169 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navigation {
+    background-color: #3b8bd2;
+    padding: 10px;
+}
+
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.navigation li a {
+    color: white;
+    text-decoration: none;
+}
+
+.navigation li a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    padding: 20px;
+}
+
+.content form {
+    margin-bottom: 20px;
+}
+
+.content form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.content form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.content form button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.content form button:hover {
+    background-color: #555;
+}
+
+.content h1, .content h2, .content h3 {
+    margin-bottom: 10px;
+}
+
+.content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.content ul li {
+    margin-bottom: 20px;
+}
+
+.flash-messages {
+    margin-bottom: 20px;
+}
+
+.flash-success {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+}
+
+.flash-danger {
+    background-color: #f44336;
+    color: white;
+    padding: 10px;
+}
+
+.flash-default {
+    background-color: #e7e7e7;
+    padding: 10px;
+}
+
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.content h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.content h3 {
+    color: #555;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.content ul li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.content ul li strong {
+    color: #4CAF50;
+    font-weight: bold;
+    margin-right: 10px;
+    width: 150px;
+}
+
+.content ul li span {
+    font-weight: bold;
+}
+
+.weather-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.weather-table th, .weather-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.weather-table th {
+    background-color: #f2f2f2;
+}
+
+.weather-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.content th, .content td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.content th {
+    background-color: #f2f2f2;
+}
+
+.content tr:hover {
+    background-color: #f9f9f9;
+}

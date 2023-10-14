@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sınav</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('serve_css', filename='styles.css') }}">
+
+</head>
+<body>
+<div class="navigation">
+    <ul>
+        <li><a href="/">Ana Sayfa</a></li>
+        {% if logged_in %}
+        <li><a href="/logout">Çıkış Yap</a></li>
+        {% else %}
+        <li><a href="/login">Giriş Yap</a></li>
+        <li><a href="/register">Kayıt Ol</a></li>
+        {% endif %}
+        <li><a href="/quiz">Sınav</a></li>
+        <li><a href="/leaderboard">Liderlik Tablosu</a></li>
+    </ul>
+</div>
+
+<div class="content">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-messages">
+        {% for category, message in messages %}
+        <div class="flash-{{ category }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+    {% if show_question %}
+    <h1>Sınav</h1>
+    <form action="/quiz" method="POST">
+        <p>Soru: {{ question.text }}</p>
+        <ul>
+            {% for option in question.options %}
+            <li>
+                <label>
+                    <input type="radio" name="answer_{{ question.id }}" value="{{ loop.index }}">
+                    <span>{{ option }}</span>
+                </label>
+            </li>
+            {% endfor %}
+        </ul>
+        <button type="submit">Sonraki Soru</button>
+    </form>
+    {% else %}
+    <h1>Sınav Tamamlandı!</h1>
+    <h3>Toplam Puan: {{ score }}</h3>
+    <a href="/leaderboard" class="btn">Liderlik Tablosuna Git</a>
+    {% endif %}
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+<footer class="footer fixed-bottom text-center">
+    <div class="container">
+        <p>Ahmet Metin &copy; 2023</p>
+    </div>
+</footer>
+</html>
